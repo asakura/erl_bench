@@ -38,10 +38,10 @@ Benchee.run(
     end
   },
   inputs: %{
-    "Small" => {small_list, 4, 100},
-    "Medium" => {medium_list, 8, 1000},
-    # "Large" => {large_list, 12, 2500},
-    # "Huge" => {huge_list, 15, 5000}
+    "Small" => {small_list, 32, 100},
+    "Medium" => {medium_list, 32, 1000},
+    "Large" => {large_list, 32, 2500},
+    "Huge" => {huge_list, 32, 5000}
   },
   formatters: [
     {Benchee.Formatters.HTML, file: "report.html"},
