@@ -1,0 +1,1 @@
+-record(options, {max_process_count, chunk_length, final_gather_timeout, fun_timeout}).
