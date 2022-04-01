@@ -1,0 +1,51 @@
+Operating System: Linux
+CPU Information: 11th Gen Intel(R) Core(TM) i9-11900H @ 2.50GHz
+Number of Available Cores: 16
+Available memory: 31.08 GB
+Elixir 1.13.3
+Erlang 24.3.2
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 1
+inputs: Huge, Small
+Estimated total run time: 42 s
+
+##### With input Huge #####
+Name                    ips        average  deviation         median         99th %
+spawn monitor        190.40        5.25 ms     ±1.08%        5.24 ms        5.44 ms
+spawn link           190.39        5.25 ms     ±1.13%        5.24 ms        5.47 ms
+spawn                189.90        5.27 ms     ±2.28%        5.23 ms        5.83 ms
+
+Comparison:
+spawn monitor        190.40
+spawn link           190.39 - 1.00x slower +0.00037 ms
+spawn                189.90 - 1.00x slower +0.0139 ms
+
+Extended statistics:
+
+Name                  minimum        maximum    sample size                     mode
+spawn monitor         5.14 ms        5.66 ms            9515.16 ms, 5.22 ms, 5.24 ms
+spawn link            5.15 ms        5.70 ms            951                  5.22 ms
+spawn                 5.16 ms        6.26 ms            9485.19 ms, 5.23 ms, 5.25 ms
+
+##### With input Small #####
+Name                    ips        average  deviation         median         99th %
+spawn              917.42 K        1.09 μs  ±1235.18%        1.04 μs        1.18 μs
+spawn monitor      844.37 K        1.18 μs   ±710.75%        1.11 μs        1.28 μs
+spawn link         807.47 K        1.24 μs  ±1363.01%        1.12 μs        1.46 μs
+
+Comparison:
+spawn              917.42 K
+spawn monitor      844.37 K - 1.09x slower +0.0943 μs
+spawn link         807.47 K - 1.14x slower +0.148 μs
+
+Extended statistics:
+
+Name                  minimum        maximum    sample size                     mode
+spawn                 0.96 μs    23020.61 μs         3.45 M                  1.04 μs
+spawn monitor         1.04 μs     2106.08 μs         3.34 M                  1.11 μs
+spawn link            1.04 μs     3748.15 μs         3.22 M                  1.10 μs
