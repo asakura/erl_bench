@@ -3,7 +3,7 @@
 -export([pmap/3, pmap/4]).
 
 -compile(inline).
--compile(inline_size/100).
+-compile({inline_size, 100}).
 
 -type funfun() :: fun((term()) -> term()).
 -type process_count() :: pos_integer().

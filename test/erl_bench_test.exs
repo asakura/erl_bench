@@ -4,7 +4,7 @@ defmodule ErlBenchTest do
   import ExUnit.CaptureLog
 
   describe "happy path" do
-    @small_list Enum.to_list(1..100_00)
+    @small_list Enum.to_list(1..10_000)
     @expected Enum.map(@small_list, &(&1 * 2))
 
     test "v1 (basic)" do
@@ -46,6 +46,22 @@ defmodule ErlBenchTest do
 
     test "v5 (pool) + inline" do
       assert :pmap_v5_pool_inline.pmap(&(&1 * 2), @small_list, 4) == {:ok, @expected}
+    end
+
+    test "v6 (pool + zipper)" do
+      assert :pmap_v6_pool_zipper.pmap(&(&1 * 2), @small_list, 4) == {:ok, @expected}
+    end
+
+    test "v6 (pool + zipper) + inline" do
+      assert :pmap_v6_pool_zipper_inline.pmap(&(&1 * 2), @small_list, 4) == {:ok, @expected}
+    end
+
+    test "v7 (spawn link + fail + zipper)" do
+      assert :pmap_v7_spawn_link_fail_zipper.pmap(&(&1 * 2), @small_list, 4) == {:ok, @expected}
+    end
+
+    test "v7 (spawn link + fail + zipper) + inline" do
+      assert :pmap_v7_spawn_link_fail_zipper_inline.pmap(&(&1 * 2), @small_list, 4) == {:ok, @expected}
     end
   end
 
@@ -112,6 +128,26 @@ defmodule ErlBenchTest do
 
     test "v5 (pool) + inline" do
       {result, _} = with_log(fn -> :pmap_v5_pool_inline.pmap(&gen_error/1, @tiny_list, 4, 2) end)
+      assert result == :error
+    end
+
+    test "v6 (pool + zipper)" do
+      {result, _} = with_log(fn -> :pmap_v6_pool_zipper.pmap(&gen_error/1, @tiny_list, 4, 2) end)
+      assert result == :error
+    end
+
+    test "v6 (pool + zipper) + inline" do
+      {result, _} = with_log(fn -> :pmap_v6_pool_zipper_inline.pmap(&gen_error/1, @tiny_list, 4, 2) end)
+      assert result == :error
+    end
+
+    test "v7 (spawn link + fail + zipper)" do
+      {result, _} = with_log(fn -> :pmap_v7_spawn_link_fail_zipper.pmap(&gen_error/1, @tiny_list, 4, 2) end)
+      assert result == :error
+    end
+
+    test "v7 (spawn link + fail + zipper) + inline" do
+      {result, _} = with_log(fn -> :pmap_v7_spawn_link_fail_zipper_inline.pmap(&gen_error/1, @tiny_list, 4, 2) end)
       assert result == :error
     end
   end

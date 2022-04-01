@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Benchee Report</title>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/benchee.css">
+    <link rel="stylesheet" type="text/css" href="assets/fontello/css/fontello.css">
+  
+</head>
+
+  <body>
+
+    <div class="header">
+  <h1>benchee report</h1>
+  
+  <span class="input-label">
+    Huge
+  </span>
+
+
+  <span class="version-note">
+  <a href="javascript:toggleSystemDataInfo();" title="Click to toggle system info">System info</a>
+</span>
+
+</div>
+
+
+    <article id="system-info" class="benchee-systeminfo" >
+  <h3>System info</h3>
+  <ul class="benchee-systeminfo-list">
+    <li>Elixir: 1.13.3</li>
+    <li>Erlang: 24.3.2</li>
+    <li>Operating system: Linux</li>
+    <li>Available memory: 31.08 GB</li>
+    <li>CPU Information: 11th Gen Intel(R) Core(TM) i9-11900H @ 2.50GHz</li>
+    <li>Number of Available Cores: 16</li>
+  </ul>
+</article>
+
+
+    
+      <article>
+        <h2>
+          <a name="run_time" href="#run_time">v2 (flush inbox) + inline Run Time</a>
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual run time distribution for v2 (flush inbox) + inline.
+  Run Times Histogram shows the distribution of occurrences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+        <th>Iterations per Second</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left">v2 (flush inbox) + inline</td>
+        
+        
+          <td>29.47</td>
+          <td>33.93 ms</td>
+          <td>±20.53%</td>
+          <td>31.07 ms</td>
+          <td>none</td>
+          <td>23.71 ms</td>
+          <td>61.36 ms</td>
+        
+        <td>147</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        <section class="benchee-plot-container">
+          <div id="run-times-histogram" class="plot"></div>
+        </section>
+        <section class="benchee-plot-container">
+          <div id="raw-run-times" class="plot"></div>
+        </section>
+      </article>
+    
+
+    
+      <article>
+        <h2>
+          <a name="memory" href="#memory">v2 (flush inbox) + inline Memory</a>
+          <a href="https://github.com/PragTob/benchee_html/wiki/Chart-Types#individual">
+            <i
+              class="benchee-help-icon icon-question-circle-o"
+              title="Graphs showing the individual memory usage distribution for v2 (flush inbox) + inline.
+  Run Times Histogram shows the distribution of occurrences of specific run times in buckets.
+  Raw Run Times shows all individual recorded run times in the order they were recorded in."
+            ></i>
+          </a>
+        </h2>
+
+        <section>
+          <table>
+  <thead>
+    <tr>
+      <th class="text-left">Name</th>
+      
+      <th>Average</th>
+      <th>Deviation</th>
+      <th>Median</th>
+      <th>Mode</th>
+      <th>Minimum</th>
+      <th>Maximum</th>
+      <th>Sample size</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      
+      <tr>
+        
+          <td class="text-left">v2 (flush inbox) + inline</td>
+        
+        
+          <td>56.54 MB</td>
+          <td>±1.10%</td>
+          <td>56.68 MB</td>
+          <td>none</td>
+          <td>55.25 MB</td>
+          <td>57.46 MB</td>
+        
+        <td>25</td>
+      </tr>
+    
+  </tbody>
+</table>
+
+        </section>
+
+        
+          <section class="benchee-plot-container">
+            <div id="memory-histogram" class="plot"></div>
+          </section>
+          <section class="benchee-plot-container">
+            <div id="raw-memory" class="plot"></div>
+          </section>
+        
+      </article>
+    
+
+    <footer>
+      <a href="https://github.com/PragTob/benchee" target="blank">benchee version: 1.1.0 </a>
+<br/>
+<a href="https://github.com/PragTob/benchee_html" target="blank">benchee_html version: 1.0.0</a>
+
+
+    </footer>
+
+    
+  <script src="assets/javascripts/plotly-1.30.1.min.js"></script>
+  <script src="assets/javascripts/benchee.js"></script>
+
+
+
+    <script>
+      var scenario = {"name":"v2 (flush inbox) + inline","job_name":"v2 (flush inbox) + inline","input_name":"Huge","run_time_data":{"statistics":{"absolute_difference":null,"average":33929091.448979594,"ips":29.47323247672978,"maximum":61355010,"median":31073164.0,"minimum":23705821,"mode":null,"percentiles":{"50":31073164.0,"99":61039569.84},"relative_less":null,"relative_more":null,"sample_size":147,"std_dev":6964333.154087784,"std_dev_ips":6.049717258255648,"std_dev_ratio":0.205261410095826},"samples":[23705821,39623801,28249583,28805976,29548657,32839287,34490781,38235523,38854732,34408405,42165433,32697636,37614550,55426235,34546189,27187046,29793360,34738382,34635198,39745142,33286025,61355010,34637015,32385820,31161004,34509953,56627507,24396114,50469101,32905661,31578804,45893016,40081008,47026975,46341244,39746369,46456132,45755038,41993886,46960258,45766093,40145678,47925374,60697843,44839149,31636190,29440719,29391044,36365169,36425167,37510789,33608384,33614972,36927100,34082215,34040769,30867173,56362381,24645940,59252887,32389731,28715295,28359671,28450754,26877529,30217059,31073164,30005910,32355684,31071323,30339049,31714567,33687412,30851407,30195014,30672813,30205514,30227736,30474068,30062201,30686827,30265817,30758164,31188988,31628464,33693889,30515148,32185242,30955798,31329664,30794037,30840847,31464346,30605058,30298912,31724141,29804300,30623699,31136330,34353572,31402282,30939033,30675288,31444703,31312070,30339112,30265841,30720178,30876887,30754309,30231366,33155540,30858356,30149105,30526181,30747785,30923698,30488302,30162710,30720084,30425100,30206419,30338258,31363175,30416984,30428689,30746766,30752068,30710801,29824170,31036650,30977432,30472115,31219129,29823760,30662134,30879915,30930351,30534644,32871099,31241439,31348345,31650166,30807465,32727477,30355144,30912061]},"memory_usage_data":{"statistics":{"absolute_difference":null,"average":59282869.44,"ips":null,"maximum":60246008,"median":59438256.0,"minimum":57931272,"mode":null,"percentiles":{"50":59438256.0,"99":60246008.0},"relative_less":null,"relative_more":null,"sample_size":25,"std_dev":651971.1167292407,"std_dev_ips":null,"std_dev_ratio":0.01099763089890746},"samples":[57931272,60038288,57931600,59199400,59686296,59653736,58595696,59641360,58573424,59852536,58733048,59564224,59692120,60022608,59565584,59058048,59373696,59438256,59386256,60093104,59381600,58491024,60246008,58439296,59483256]},"tag":null};
+
+      var inputHeadline = " (Huge)"
+
+      
+        drawRunTimeHistogram(scenario, inputHeadline);
+        drawRawRunTimeChart(scenario, inputHeadline);
+      
+
+      
+        if (scenario.memory_usage_data.statistics.std_dev !== 0) {
+          drawMemoryHistogram(scenario, inputHeadline);
+          drawRawMemoryChart(scenario, inputHeadline);
+        };
+      
+    </script>
+  </body>
+</html>

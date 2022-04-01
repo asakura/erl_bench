@@ -1,0 +1,192 @@
+Operating System: Linux
+CPU Information: 11th Gen Intel(R) Core(TM) i9-11900H @ 2.50GHz
+Number of Available Cores: 16
+Available memory: 31.08 GB
+Elixir 1.13.3
+Erlang 24.3.2
+
+Benchmark suite executing with the following configuration:
+warmup: 5 s
+time: 5 s
+memory time: 2 s
+reduction time: 2 s
+parallel: 1
+inputs: Huge, Large, Medium
+Estimated total run time: 4.90 min
+
+##### With input Huge #####
+Name                                               ips        average  deviation         median         99th %
+v2 (flush inbox) + inline                        29.47       33.93 ms    ±20.53%       31.07 ms       61.04 ms
+v3 (spawn link) + inline                         29.04       34.44 ms    ±19.37%       31.71 ms       61.05 ms
+v5 (pool) + inline                               26.84       37.26 ms    ±21.37%       36.87 ms       58.52 ms
+v4 (fail at first error) + inline                24.84       40.25 ms    ±22.34%       38.93 ms       63.72 ms
+v1 (basic) + inline                              23.44       42.66 ms    ±15.39%       43.42 ms       62.43 ms
+v6 (pool + zipper) + inline                      22.99       43.50 ms    ±12.39%       43.92 ms       60.75 ms
+v7 (spawn_link + fail + zipper) + inline         20.68       48.35 ms    ±10.86%       49.67 ms       63.79 ms
+
+Comparison: 
+v2 (flush inbox) + inline                        29.47
+v3 (spawn link) + inline                         29.04 - 1.02x slower +0.51 ms
+v5 (pool) + inline                               26.84 - 1.10x slower +3.33 ms
+v4 (fail at first error) + inline                24.84 - 1.19x slower +6.33 ms
+v1 (basic) + inline                              23.44 - 1.26x slower +8.73 ms
+v6 (pool + zipper) + inline                      22.99 - 1.28x slower +9.57 ms
+v7 (spawn_link + fail + zipper) + inline         20.68 - 1.43x slower +14.42 ms
+
+Memory usage statistics:
+
+Name                                             average  deviation         median         99th %
+v2 (flush inbox) + inline                       56.54 MB     ±1.10%       56.68 MB       57.46 MB
+v3 (spawn link) + inline                        55.68 MB     ±1.24%       55.73 MB       56.67 MB
+v5 (pool) + inline                              47.00 MB     ±0.41%       46.98 MB       47.33 MB
+v4 (fail at first error) + inline               56.29 MB     ±1.09%       56.37 MB       57.44 MB
+v1 (basic) + inline                             57.70 MB     ±1.24%       57.68 MB       58.89 MB
+v6 (pool + zipper) + inline                     50.89 MB     ±5.94%       51.05 MB       54.49 MB
+v7 (spawn_link + fail + zipper) + inline        61.23 MB     ±3.27%       62.07 MB       64.32 MB
+
+Comparison: 
+v2 (flush inbox) + inline                       56.68 MB
+v3 (spawn link) + inline                        55.68 MB - 0.98x memory usage -0.86145 MB
+v5 (pool) + inline                              47.00 MB - 0.83x memory usage -9.53492 MB
+v4 (fail at first error) + inline               56.29 MB - 1.00x memory usage -0.24171 MB
+v1 (basic) + inline                             57.70 MB - 1.02x memory usage +1.17 MB
+v6 (pool + zipper) + inline                     50.89 MB - 0.90x memory usage -5.64499 MB
+v7 (spawn_link + fail + zipper) + inline        61.23 MB - 1.08x memory usage +4.70 MB
+
+Reduction count statistics:
+
+Name                                             average  deviation         median         99th %
+v2 (flush inbox) + inline                         1.13 M     ±0.58%         1.13 M         1.14 M
+v3 (spawn link) + inline                          1.13 M     ±0.58%         1.13 M         1.14 M
+v5 (pool) + inline                                1.15 M     ±0.96%         1.16 M         1.17 M
+v4 (fail at first error) + inline                 1.12 M     ±0.42%         1.12 M         1.14 M
+v1 (basic) + inline                               1.13 M     ±0.33%         1.13 M         1.13 M
+v6 (pool + zipper) + inline                       1.18 M     ±1.29%         1.17 M         1.21 M
+v7 (spawn_link + fail + zipper) + inline          1.17 M     ±0.85%         1.17 M         1.18 M
+
+Comparison: 
+v2 (flush inbox) + inline                         1.13 M
+v3 (spawn link) + inline                          1.13 M - 1.00x reduction count +0.00127 M
+v5 (pool) + inline                                1.15 M - 1.02x reduction count +0.0257 M
+v4 (fail at first error) + inline                 1.12 M - 1.00x reduction count -0.00279 M
+v1 (basic) + inline                               1.13 M - 1.00x reduction count +0.00077 M
+v6 (pool + zipper) + inline                       1.18 M - 1.05x reduction count +0.0516 M
+v7 (spawn_link + fail + zipper) + inline          1.17 M - 1.03x reduction count +0.0388 M
+
+##### With input Large #####
+Name                                               ips        average  deviation         median         99th %
+v5 (pool) + inline                              669.68        1.49 ms     ±9.70%        1.48 ms        1.77 ms
+v3 (spawn link) + inline                        507.80        1.97 ms     ±7.64%        1.96 ms        2.20 ms
+v6 (pool + zipper) + inline                     505.41        1.98 ms    ±10.96%        2.01 ms        2.35 ms
+v4 (fail at first error) + inline               484.87        2.06 ms     ±6.75%        2.06 ms        2.27 ms
+v2 (flush inbox) + inline                       480.97        2.08 ms     ±7.22%        2.07 ms        2.38 ms
+v1 (basic) + inline                             431.91        2.32 ms     ±9.35%        2.31 ms        2.62 ms
+v7 (spawn_link + fail + zipper) + inline        413.02        2.42 ms     ±8.65%        2.43 ms        2.84 ms
+
+Comparison: 
+v5 (pool) + inline                              669.68
+v3 (spawn link) + inline                        507.80 - 1.32x slower +0.48 ms
+v6 (pool + zipper) + inline                     505.41 - 1.33x slower +0.49 ms
+v4 (fail at first error) + inline               484.87 - 1.38x slower +0.57 ms
+v2 (flush inbox) + inline                       480.97 - 1.39x slower +0.59 ms
+v1 (basic) + inline                             431.91 - 1.55x slower +0.82 ms
+v7 (spawn_link + fail + zipper) + inline        413.02 - 1.62x slower +0.93 ms
+
+Memory usage statistics:
+
+Name                                             average  deviation         median         99th %
+v5 (pool) + inline                               4.81 MB     ±1.25%        4.81 MB        4.99 MB
+v3 (spawn link) + inline                         5.67 MB     ±1.85%        5.67 MB        5.92 MB
+v6 (pool + zipper) + inline                      5.51 MB     ±6.95%        5.33 MB        6.38 MB
+v4 (fail at first error) + inline                5.67 MB     ±1.60%        5.67 MB        5.89 MB
+v2 (flush inbox) + inline                        5.69 MB     ±1.72%        5.69 MB        5.90 MB
+v1 (basic) + inline                              5.70 MB     ±1.86%        5.70 MB        5.92 MB
+v7 (spawn_link + fail + zipper) + inline         6.91 MB     ±5.85%        7.05 MB        7.36 MB
+
+Comparison: 
+v5 (pool) + inline                               4.81 MB
+v3 (spawn link) + inline                         5.67 MB - 1.18x memory usage +0.86 MB
+v6 (pool + zipper) + inline                      5.51 MB - 1.14x memory usage +0.69 MB
+v4 (fail at first error) + inline                5.67 MB - 1.18x memory usage +0.85 MB
+v2 (flush inbox) + inline                        5.69 MB - 1.18x memory usage +0.87 MB
+v1 (basic) + inline                              5.70 MB - 1.18x memory usage +0.88 MB
+v7 (spawn_link + fail + zipper) + inline         6.91 MB - 1.43x memory usage +2.09 MB
+
+Reduction count statistics:
+
+Name                                             average  deviation         median         99th %
+v5 (pool) + inline                              109.84 K     ±0.16%       109.83 K       110.33 K
+v3 (spawn link) + inline                        111.37 K     ±0.09%       111.35 K       111.78 K
+v6 (pool + zipper) + inline                     113.53 K     ±0.23%       113.49 K       114.66 K
+v4 (fail at first error) + inline               108.80 K     ±0.11%       108.78 K       109.27 K
+v2 (flush inbox) + inline                       111.47 K     ±0.10%       111.44 K       111.89 K
+v1 (basic) + inline                             111.46 K     ±0.08%       111.44 K       111.76 K
+v7 (spawn_link + fail + zipper) + inline        112.61 K     ±0.13%       112.58 K       113.13 K
+
+Comparison: 
+v5 (pool) + inline                              109.83 K
+v3 (spawn link) + inline                        111.37 K - 1.01x reduction count +1.53 K
+v6 (pool + zipper) + inline                     113.53 K - 1.03x reduction count +3.69 K
+v4 (fail at first error) + inline               108.80 K - 0.99x reduction count -1.03839 K
+v2 (flush inbox) + inline                       111.47 K - 1.01x reduction count +1.63 K
+v1 (basic) + inline                             111.46 K - 1.01x reduction count +1.62 K
+v7 (spawn_link + fail + zipper) + inline        112.61 K - 1.03x reduction count +2.77 K
+
+##### With input Medium #####
+Name                                               ips        average  deviation         median         99th %
+v4 (fail at first error) + inline               4.15 K      241.22 μs    ±31.87%      244.58 μs      422.38 μs
+v7 (spawn_link + fail + zipper) + inline        4.05 K      246.89 μs    ±25.40%      250.89 μs      417.48 μs
+v2 (flush inbox) + inline                       3.92 K      255.14 μs    ±29.93%      252.55 μs      427.16 μs
+v3 (spawn link) + inline                        3.91 K      255.76 μs    ±25.92%      250.22 μs      420.51 μs
+v5 (pool) + inline                              3.89 K      256.81 μs    ±24.86%      241.87 μs      439.76 μs
+v6 (pool + zipper) + inline                     3.68 K      271.96 μs    ±30.75%      258.62 μs      437.49 μs
+v1 (basic) + inline                             3.67 K      272.38 μs    ±25.16%      271.51 μs      440.42 μs
+
+Comparison: 
+v4 (fail at first error) + inline               4.15 K
+v7 (spawn_link + fail + zipper) + inline        4.05 K - 1.02x slower +5.67 μs
+v2 (flush inbox) + inline                       3.92 K - 1.06x slower +13.92 μs
+v3 (spawn link) + inline                        3.91 K - 1.06x slower +14.54 μs
+v5 (pool) + inline                              3.89 K - 1.06x slower +15.59 μs
+v6 (pool + zipper) + inline                     3.68 K - 1.13x slower +30.74 μs
+v1 (basic) + inline                             3.67 K - 1.13x slower +31.16 μs
+
+Memory usage statistics:
+
+Name                                             average  deviation         median         99th %
+v4 (fail at first error) + inline              573.57 KB     ±3.33%      577.34 KB      593.03 KB
+v7 (spawn_link + fail + zipper) + inline       709.10 KB     ±3.54%      716.16 KB      731.86 KB
+v2 (flush inbox) + inline                      575.09 KB     ±3.11%      577.99 KB      593.69 KB
+v3 (spawn link) + inline                       573.56 KB     ±3.34%      577.34 KB      593.04 KB
+v5 (pool) + inline                             521.29 KB     ±4.06%      520.20 KB      568.70 KB
+v6 (pool + zipper) + inline                    653.59 KB     ±3.58%      653.87 KB      692.20 KB
+v1 (basic) + inline                            582.50 KB     ±1.93%      577.86 KB      593.52 KB
+
+Comparison: 
+v4 (fail at first error) + inline              577.34 KB
+v7 (spawn_link + fail + zipper) + inline       709.10 KB - 1.24x memory usage +135.53 KB
+v2 (flush inbox) + inline                      575.09 KB - 1.00x memory usage +1.52 KB
+v3 (spawn link) + inline                       573.56 KB - 1.00x memory usage -0.01187 KB
+v5 (pool) + inline                             521.29 KB - 0.91x memory usage -52.27802 KB
+v6 (pool + zipper) + inline                    653.59 KB - 1.14x memory usage +80.02 KB
+v1 (basic) + inline                            582.50 KB - 1.02x memory usage +8.93 KB
+
+Reduction count statistics:
+
+Name                                             average  deviation         median         99th %
+v4 (fail at first error) + inline                17.09 K     ±0.50%        17.08 K        17.20 K
+v7 (spawn_link + fail + zipper) + inline         17.03 K     ±0.50%        17.04 K        17.13 K
+v2 (flush inbox) + inline                        18.09 K     ±1.68%        18.15 K        18.16 K
+v3 (spawn link) + inline                         18.11 K     ±0.50%        18.13 K        18.14 K
+v5 (pool) + inline                               16.89 K     ±4.57%        17.11 K        18.38 K
+v6 (pool + zipper) + inline                      17.18 K     ±5.40%        17.13 K        19.45 K
+v1 (basic) + inline                              18.11 K     ±1.07%        18.12 K        18.16 K
+
+Comparison: 
+v4 (fail at first error) + inline                17.08 K
+v7 (spawn_link + fail + zipper) + inline         17.03 K - 1.00x reduction count -0.05958 K
+v2 (flush inbox) + inline                        18.09 K - 1.06x reduction count +1.00 K
+v3 (spawn link) + inline                         18.11 K - 1.06x reduction count +1.02 K
+v5 (pool) + inline                               16.89 K - 0.99x reduction count -0.19946 K
+v6 (pool + zipper) + inline                      17.18 K - 1.01x reduction count +0.0911 K
+v1 (basic) + inline                              18.11 K - 1.06x reduction count +1.02 K
