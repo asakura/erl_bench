@@ -1,0 +1,71 @@
+Operating System: Linux
+CPU Information: 11th Gen Intel(R) Core(TM) i9-11900H @ 2.50GHz
+Number of Available Cores: 16
+Available memory: 31.08 GB
+Elixir 1.13.3
+Erlang 24.3.2
+
+Benchmark suite executing with the following configuration:
+warmup: 10 s
+time: 20 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 1
+inputs: 1. No scope to copy, 2. 3 elem. list, 3. 3 key map, 4. 1M list, 5. 1M map
+Estimated total run time: 7.50 min
+
+
+##### With input 1. No scope to copy #####
+Name                    ips        average  deviation         median         99th %
+spawn              880.65 K        1.14 μs  ±1388.40%        1.08 μs        1.76 μs
+spawn monitor      787.30 K        1.27 μs  ±2649.71%        1.15 μs        2.26 μs
+spawn link         739.07 K        1.35 μs  ±3577.74%        1.17 μs        1.98 μs
+
+Comparison: 
+spawn              880.65 K
+spawn monitor      787.30 K - 1.12x slower +0.135 μs
+spawn link         739.07 K - 1.19x slower +0.22 μs
+
+##### With input 2. 3 elem. list #####
+Name                    ips        average  deviation         median         99th %
+spawn              877.44 K        1.14 μs  ±1280.70%        1.08 μs        1.84 μs
+spawn monitor      820.34 K        1.22 μs  ±1442.68%        1.15 μs        1.90 μs
+spawn link         735.78 K        1.36 μs  ±2919.87%        1.18 μs        2.04 μs
+
+Comparison: 
+spawn              877.44 K
+spawn monitor      820.34 K - 1.07x slower +0.0793 μs
+spawn link         735.78 K - 1.19x slower +0.22 μs
+
+##### With input 3. 3 key map #####
+Name                    ips        average  deviation         median         99th %
+spawn              850.44 K        1.18 μs  ±1252.87%        1.11 μs        1.86 μs
+spawn monitor      812.15 K        1.23 μs  ±1463.68%        1.15 μs        2.27 μs
+spawn link         734.39 K        1.36 μs  ±2875.02%        1.18 μs        2.30 μs
+
+Comparison: 
+spawn              850.44 K
+spawn monitor      812.15 K - 1.05x slower +0.0554 μs
+spawn link         734.39 K - 1.16x slower +0.186 μs
+
+##### With input 4. 1M list #####
+Name                    ips        average  deviation         median         99th %
+spawn              857.58 K        1.17 μs  ±1293.78%        1.10 μs        1.71 μs
+spawn monitor      791.13 K        1.26 μs  ±1487.14%        1.18 μs        2.05 μs
+spawn link         734.07 K        1.36 μs  ±2878.04%        1.19 μs        2.19 μs
+
+Comparison: 
+spawn              857.58 K
+spawn monitor      791.13 K - 1.08x slower +0.0980 μs
+spawn link         734.07 K - 1.17x slower +0.196 μs
+
+##### With input 5. 1M map #####
+Name                    ips        average  deviation         median         99th %
+spawn              875.32 K        1.14 μs  ±1253.25%        1.09 μs        1.72 μs
+spawn monitor      795.89 K        1.26 μs  ±1469.77%        1.16 μs        2.28 μs
+spawn link         730.45 K        1.37 μs  ±2928.86%        1.19 μs        2.21 μs
+
+Comparison: 
+spawn              875.32 K
+spawn monitor      795.89 K - 1.10x slower +0.114 μs
+spawn link         730.45 K - 1.20x slower +0.23 μs

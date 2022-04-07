@@ -1,0 +1,91 @@
+Operating System: Linux
+CPU Information: 11th Gen Intel(R) Core(TM) i9-11900H @ 2.50GHz
+Number of Available Cores: 16
+Available memory: 31.08 GB
+Elixir 1.13.3
+Erlang 24.3.2
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 10 s
+memory time: 0 ns
+reduction time: 2 s
+parallel: 1
+inputs: 1. 10 list, 2. 1k list
+Estimated total run time: 2.80 min
+
+##### With input 1. 10 list #####
+Name                       ips        average  deviation         median         99th %
+1. match 1 head         7.48 M      133.70 ns ±17461.92%         103 ns         171 ns
+2. match 2 head         7.42 M      134.75 ns ±18115.65%         101 ns         129 ns
+4. match 4 head         7.03 M      142.32 ns ±26507.86%          95 ns         139 ns
+3. match 3 head         6.91 M      144.63 ns ±25807.62%          98 ns         141 ns
+5. match 5 head         6.15 M      162.59 ns ±30986.79%          93 ns         138 ns
+6. match 10 head        6.04 M      165.52 ns ±28158.09%          90 ns         274 ns
+
+Comparison: 
+1. match 1 head         7.48 M
+2. match 2 head         7.42 M - 1.01x slower +1.05 ns
+4. match 4 head         7.03 M - 1.06x slower +8.62 ns
+3. match 3 head         6.91 M - 1.08x slower +10.93 ns
+5. match 5 head         6.15 M - 1.22x slower +28.89 ns
+6. match 10 head        6.04 M - 1.24x slower +31.82 ns
+
+Extended statistics: 
+
+Name                     minimum        maximum    sample size                     mode
+1. match 1 head            86 ns    62607773 ns        22.23 M                   105 ns
+2. match 2 head            87 ns    63853069 ns        22.45 M                   101 ns
+4. match 4 head            82 ns   131575751 ns        22.65 M                    93 ns
+3. match 3 head            85 ns   129334986 ns        22.49 M                    99 ns
+5. match 5 head            81 ns   131835240 ns        22.52 M                    94 ns
+6. match 10 head           78 ns   130807614 ns        22.09 M                    91 ns
+
+Reduction count statistics:
+
+Name             Reduction count
+1. match 1 head               22
+2. match 2 head               13 - 0.59x reduction count -9
+4. match 4 head               11 - 0.50x reduction count -11
+3. match 3 head               11 - 0.50x reduction count -11
+5. match 5 head                7 - 0.32x reduction count -15
+6. match 10 head               5 - 0.23x reduction count -17
+
+**All measurements for reduction count were the same**
+
+##### With input 2. 1k list #####
+Name                       ips        average  deviation         median         99th %
+6. match 10 head      407.30 K        2.46 μs   ±742.92%        2.25 μs        3.02 μs
+5. match 5 head       373.45 K        2.68 μs   ±717.38%        2.42 μs        3.56 μs
+4. match 4 head       349.65 K        2.86 μs   ±680.52%        2.59 μs        4.24 μs
+3. match 3 head       302.37 K        3.31 μs   ±647.72%        2.96 μs        6.61 μs
+2. match 2 head       251.84 K        3.97 μs   ±447.59%        3.48 μs        7.50 μs
+1. match 1 head       206.91 K        4.83 μs   ±434.87%        4.24 μs        7.26 μs
+
+Comparison: 
+6. match 10 head      407.30 K
+5. match 5 head       373.45 K - 1.09x slower +0.22 μs
+4. match 4 head       349.65 K - 1.16x slower +0.40 μs
+3. match 3 head       302.37 K - 1.35x slower +0.85 μs
+2. match 2 head       251.84 K - 1.62x slower +1.52 μs
+1. match 1 head       206.91 K - 1.97x slower +2.38 μs
+
+Extended statistics: 
+
+Name                     minimum        maximum    sample size                     mode
+6. match 10 head         2.11 μs    17471.91 μs         3.64 M                  2.22 μs
+5. match 5 head          2.25 μs    18250.42 μs         3.37 M                  2.40 μs
+4. match 4 head          2.38 μs    17463.79 μs         3.18 M                  2.55 μs
+3. match 3 head          2.79 μs    19661.07 μs         2.77 M                  2.92 μs
+2. match 2 head          3.37 μs    12234.91 μs         2.34 M                  3.44 μs
+1. match 1 head          3.90 μs    16029.02 μs         1.95 M                  4.11 μs
+
+Reduction count statistics:
+
+Name             Reduction count
+6. match 10 head             403
+5. match 5 head              512 - 1.27x reduction count +109
+4. match 4 head              666 - 1.65x reduction count +263
+3. match 3 head              805 - 2.00x reduction count +402
+2. match 2 head             1130 - 2.80x reduction count +727
+1. match 1 head             2147 - 5.33x reduction count +1744

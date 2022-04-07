@@ -25,7 +25,13 @@ Benchee.run(
     end,
     "v7 (spawn_link + fail + zipper)" => fn {list, workers, chunk_size} ->
       :pmap_v7_spawn_link_fail_zipper.pmap(map_fun, list, workers, chunk_size)
-    end
+    end,
+    "v8 (spawn_link + fail + unpack)" => fn {list, workers, chunk_size} ->
+      :pmap_v8_unpack.pmap(map_fun, list, workers, chunk_size)
+    end,
+    "v9 (pool + unpack)" => fn {list, workers, chunk_size} ->
+      :pmap_v9_pool_unpack.pmap(map_fun, list, workers, chunk_size)
+    end,
   },
   inputs: %{
     "Medium" => {medium_list, 10, 1000},
@@ -38,7 +44,7 @@ Benchee.run(
   ],
   save: [path: "save/pmap.save", tag: "1"],
   warmup: 5,
-  time: 5,
+  time: 10,
   memory_time: 2,
   reduction_time: 2,
   profile_after: false
