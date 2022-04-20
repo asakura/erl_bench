@@ -1,0 +1,50 @@
+Operating System: Linux
+CPU Information: 11th Gen Intel(R) Core(TM) i9-11900H @ 2.50GHz
+Number of Available Cores: 16
+Available memory: 31.08 GB
+Elixir 1.13.3
+Erlang 25.0-rc2
+
+Benchmark suite executing with the following configuration:
+warmup: 5 s
+time: 20 s
+memory time: 2 s
+reduction time: 2 s
+parallel: 1
+inputs: 0. 1k
+Estimated total run time: 2.42 min
+
+##### With input 0. 1k #####
+Name                                 ips        average  deviation         median         99th %
+5. flush_with_set_keep/1        21193.72      0.0472 ms     ±3.90%      0.0470 ms      0.0503 ms
+4. flush_with_set_remove/1       4772.60        0.21 ms    ±34.74%        0.22 ms        0.37 ms
+2. flush_inbox_sparse/1           703.48        1.42 ms     ±6.29%        1.41 ms        1.80 ms
+3. flush_inbox_opt/1              578.46        1.73 ms     ±4.22%        1.72 ms        1.99 ms
+1. flush_inbox/1                  445.87        2.24 ms     ±3.28%        2.24 ms        2.45 ms
+
+Comparison:
+5. flush_with_set_keep/1        21193.72
+4. flush_with_set_remove/1       4772.60 - 4.44x slower +0.162 ms
+2. flush_inbox_sparse/1           703.48 - 30.13x slower +1.37 ms
+3. flush_inbox_opt/1              578.46 - 36.64x slower +1.68 ms
+1. flush_inbox/1                  445.87 - 47.53x slower +2.20 ms
+
+Memory usage statistics:
+
+Name                          Memory usage
+5. flush_with_set_keep/1               0 B
+4. flush_with_set_remove/1             0 B - 1.00x memory usage +0 B
+2. flush_inbox_sparse/1                0 B - 1.00x memory usage +0 B
+3. flush_inbox_opt/1                   0 B - 1.00x memory usage +0 B
+1. flush_inbox/1                       0 B - 1.00x memory usage +0 B
+
+**All measurements for memory usage were the same**
+
+Reduction count statistics:
+
+Name                       Reduction count
+5. flush_with_set_keep/1         0.00600 K
+4. flush_with_set_remove/1       0.00600 K - 1.00x reduction count +0 K
+2. flush_inbox_sparse/1             5.00 K - 833.67x reduction count +5.00 K
+3. flush_inbox_opt/1                5.00 K - 833.67x reduction count +5.00 K
+1. flush_inbox/1                    5.00 K - 833.67x reduction count +5.00 K
