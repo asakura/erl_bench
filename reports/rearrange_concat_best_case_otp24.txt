@@ -1,0 +1,167 @@
+Generated erl_bench app
+Operating System: Linux
+CPU Information: 11th Gen Intel(R) Core(TM) i9-11900H @ 2.50GHz
+Number of Available Cores: 16
+Available memory: 31.08 GB
+Elixir 1.13.3
+Erlang 24.3.3
+
+Benchmark suite executing with the following configuration:
+warmup: 5 s
+time: 5 s
+memory time: 2 s
+reduction time: 2 s
+parallel: 1
+inputs: 0. 100, 1. 1k, 2. 10k, 3. 100k, 4. 1M
+Estimated total run time: 3.50 min
+
+##### With input 0. 100 #####
+Name                         ips        average  deviation         median         99th %
+3. mapper_keep/2       1075.93 K        0.93 μs  ±1346.82%        0.76 μs        1.26 μs
+2. mapper_reduce/2      916.80 K        1.09 μs  ±1344.49%        0.93 μs        1.52 μs
+1. zipper/3             830.29 K        1.20 μs  ±1877.12%        0.92 μs        1.62 μs
+
+Comparison: 
+3. mapper_keep/2       1075.93 K
+2. mapper_reduce/2      916.80 K - 1.17x slower +0.161 μs
+1. zipper/3             830.29 K - 1.30x slower +0.27 μs
+
+Memory usage statistics:
+
+Name                  Memory usage
+3. mapper_keep/2           3.03 KB
+2. mapper_reduce/2         4.34 KB - 1.43x memory usage +1.31 KB
+1. zipper/3                3.09 KB - 1.02x memory usage +0.0547 KB
+
+**All measurements for memory usage were the same**
+
+Reduction count statistics:
+
+Name               Reduction count
+3. mapper_keep/2               187
+2. mapper_reduce/2             196 - 1.05x reduction count +9
+1. zipper/3                    247 - 1.32x reduction count +60
+
+**All measurements for reduction count were the same**
+
+##### With input 1. 1k #####
+Name                         ips        average  deviation         median         99th %
+1. zipper/3             108.73 K        9.20 μs   ±138.12%        8.45 μs       23.99 μs
+3. mapper_keep/2         79.29 K       12.61 μs    ±88.60%       11.97 μs       26.58 μs
+2. mapper_reduce/2       58.89 K       16.98 μs    ±71.88%       15.97 μs       39.73 μs
+
+Comparison: 
+1. zipper/3             108.73 K
+3. mapper_keep/2         79.29 K - 1.37x slower +3.42 μs
+2. mapper_reduce/2       58.89 K - 1.85x slower +7.78 μs
+
+Memory usage statistics:
+
+Name                  Memory usage
+1. zipper/3               42.91 KB
+3. mapper_keep/2          37.23 KB - 0.87x memory usage -5.68750 KB
+2. mapper_reduce/2        60.20 KB - 1.40x memory usage +17.28 KB
+
+**All measurements for memory usage were the same**
+
+Reduction count statistics:
+
+Name               Reduction count
+1. zipper/3                 2.18 K
+3. mapper_keep/2            1.85 K - 0.85x reduction count -0.33300 K
+2. mapper_reduce/2          2.00 K - 0.92x reduction count -0.18200 K
+
+**All measurements for reduction count were the same**
+
+##### With input 2. 10k #####
+Name                         ips        average  deviation         median         99th %
+1. zipper/3              10.65 K       93.92 μs    ±30.09%       86.42 μs      187.32 μs
+3. mapper_keep/2          6.79 K      147.34 μs    ±35.58%      132.92 μs      335.89 μs
+2. mapper_reduce/2        4.44 K      225.03 μs    ±28.73%      212.38 μs      328.18 μs
+
+Comparison: 
+1. zipper/3              10.65 K
+3. mapper_keep/2          6.79 K - 1.57x slower +53.43 μs
+2. mapper_reduce/2        4.44 K - 2.40x slower +131.11 μs
+
+Memory usage statistics:
+
+Name                  Memory usage
+1. zipper/3              279.32 KB
+3. mapper_keep/2         265.65 KB - 0.95x memory usage -13.67188 KB
+2. mapper_reduce/2       548.97 KB - 1.97x memory usage +269.65 KB
+
+**All measurements for memory usage were the same**
+
+Reduction count statistics:
+
+Name               Reduction count
+1. zipper/3                24.00 K
+3. mapper_keep/2           16.10 K - 0.67x reduction count -7.89700 K
+2. mapper_reduce/2         17.23 K - 0.72x reduction count -6.76400 K
+
+**All measurements for reduction count were the same**
+
+##### With input 3. 100k #####
+Name                         ips        average  deviation         median         99th %
+1. zipper/3               728.28        1.37 ms    ±21.10%        1.39 ms        2.11 ms
+3. mapper_keep/2          488.10        2.05 ms     ±8.97%        2.01 ms        2.56 ms
+2. mapper_reduce/2        296.32        3.37 ms    ±19.39%        3.12 ms        4.57 ms
+
+Comparison: 
+1. zipper/3               728.28
+3. mapper_keep/2          488.10 - 1.49x slower +0.68 ms
+2. mapper_reduce/2        296.32 - 2.46x slower +2.00 ms
+
+Memory usage statistics:
+
+Name                  Memory usage
+1. zipper/3                3.06 MB
+3. mapper_keep/2           4.66 MB - 1.52x memory usage +1.60 MB
+2. mapper_reduce/2         8.45 MB - 2.77x memory usage +5.40 MB
+
+**All measurements for memory usage were the same**
+
+Reduction count statistics:
+
+Name                       average  deviation         median         99th %
+1. zipper/3               175.11 K     ±0.20%       174.97 K       176.61 K
+3. mapper_keep/2          138.97 K     ±0.87%       138.94 K       142.39 K
+2. mapper_reduce/2        147.60 K     ±0.60%       147.34 K       150.39 K
+
+Comparison: 
+1. zipper/3               174.97 K
+3. mapper_keep/2          138.97 K - 0.79x reduction count -36.14006 K
+2. mapper_reduce/2        147.60 K - 0.84x reduction count -27.51067 K
+
+##### With input 4. 1M #####
+Name                         ips        average  deviation         median         99th %
+1. zipper/3                39.17       25.53 ms     ±9.25%       24.83 ms       32.17 ms
+3. mapper_keep/2           14.69       68.07 ms    ±13.95%       63.71 ms       93.79 ms
+2. mapper_reduce/2         12.62       79.22 ms    ±14.76%       77.39 ms      143.32 ms
+
+Comparison: 
+1. zipper/3                39.17
+3. mapper_keep/2           14.69 - 2.67x slower +42.54 ms
+2. mapper_reduce/2         12.62 - 3.10x slower +53.69 ms
+
+Memory usage statistics:
+
+Name                  Memory usage
+1. zipper/3               31.72 MB
+3. mapper_keep/2          64.09 MB - 2.02x memory usage +32.37 MB
+2. mapper_reduce/2       112.60 MB - 3.55x memory usage +80.88 MB
+
+**All measurements for memory usage were the same**
+
+Reduction count statistics:
+
+Name                       average  deviation         median         99th %
+1. zipper/3                 1.83 M     ±0.48%         1.82 M         1.85 M
+3. mapper_keep/2            1.41 M     ±0.88%         1.41 M         1.46 M
+2. mapper_reduce/2          1.53 M     ±0.54%         1.53 M         1.56 M
+
+Comparison: 
+1. zipper/3                 1.82 M
+3. mapper_keep/2            1.41 M - 0.77x reduction count -0.41364 M
+2. mapper_reduce/2          1.53 M - 0.84x reduction count -0.29300 M
